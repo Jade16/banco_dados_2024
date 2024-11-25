@@ -1,0 +1,1 @@
+-- script com as consultas realizadas no banco de dados já criado
