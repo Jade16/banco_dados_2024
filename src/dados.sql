@@ -25,3 +25,6 @@ VALUES (1, '12.345.678/0001-90', 1, TO_DATE('01/03/2024', 'DD/MM/YYYY'), 50000, 
 -- Populando a tabela Servicos_Contrato
 INSERT INTO Servicos_Contrato (Contrato, Servico) VALUES (1, 'Manutenção de Campo');
 
+-- Populando a tabela Instalacao_Esportiva
+INSERT INTO Instalacao_Esportiva (CNPJ, Nome, Cidade, Endereco_Rua, Endereco_Numero, Endereco_Bairro, Endereco_CEP)
+VALUES ('98.765.432/0001-01', 'Estádio Municipal', '1234567', 'Av. Principal', '500', 'Centro', '01010-010');
