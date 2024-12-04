@@ -3,7 +3,7 @@
 -- tabela Empresa_Manutencao
 CREATE TABLE Empresa_Manutencao(
   CNPJ CHAR(18) NOT NULL, -- irá armazenar os caracteres não numericos
-  Tipo_Empresa VARCHAR2(7), -- valores aceitos: pública e privada
+  Tipo_Empresa VARCHAR2(8), -- valores aceitos: pública e privada
   Proprietario VARCHAR2(100),
   Orgao_Vinculado VARCHAR2(100),
   Nome_Fantasia VARCHAR2(100),
@@ -225,7 +225,7 @@ CREATE TABLE Reserva_Esportiva(
   Quantidade_Pessoas NUMBER,
   Tipo VARCHAR2(50),
   Funcionario_Responsavel NUMBER NOT NULL,
-  Aprovado VARCHAR2(3), -- aceita apenas os valores: sim; não; em analise
+  Aprovado VARCHAR2(10), -- aceita apenas os valores: sim; não; em analise
   CONSTRAINT PK_ID_Reserva PRIMARY KEY (ID_Reserva),
   CONSTRAINT FK_ID_Reserva_RE FOREIGN KEY (ID_Reserva)
     REFERENCES Reserva(ID_Reserva)
