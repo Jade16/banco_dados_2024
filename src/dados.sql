@@ -28,3 +28,8 @@ INSERT INTO Servicos_Contrato (Contrato, Servico) VALUES (1, 'Manutenção de Ca
 -- Populando a tabela Instalacao_Esportiva
 INSERT INTO Instalacao_Esportiva (CNPJ, Nome, Cidade, Endereco_Rua, Endereco_Numero, Endereco_Bairro, Endereco_CEP)
 VALUES ('98.765.432/0001-01', 'Estádio Municipal', '1234567', 'Av. Principal', '500', 'Centro', '01010-010');
+
+-- Populando a tabela Funcionario_Instalacao
+INSERT INTO Funcionario_Instalacao (F_ID, Nome, CPF, RG, Nro_Carteira_Trabalho, Data_Contratacao, Instalacao_Esportiva, Telefone1, Telefone2)
+VALUES (1, 'Carlos Silva', '123.456.789-00', 'MG123456', '67890', TO_DATE('01/06/2020', 'DD/MM/YYYY'), '98.765.432/0001-01', '11-99999-8888', '11-98888-7777');
+
