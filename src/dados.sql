@@ -38,3 +38,31 @@ INSERT INTO Espaco_Esportivo (Instalacao, Nro_Espaco, Tipo)
 VALUES ('98.765.432/0001-01', 1, 'Campo de Futebol');
 INSERT INTO Espaco_Esportivo (Instalacao, Nro_Espaco, Tipo)
 VALUES ('98.765.432/0001-01', 2, 'Quadra de Vôlei');
+
+-- Populando a tabela Reserva
+INSERT INTO Reserva (ID_Reserva, Data_Reserva, Hora_Inicio, Hora_Termino, Instalacao, Nro_Espaco, Tipo_Reserva)
+VALUES (1, TO_DATE('10/03/2024', 'DD/MM/YYYY'), TO_TIMESTAMP('08:00', 'HH24:MI'), TO_TIMESTAMP('10:00', 'HH24:MI'), '98.765.432/0001-01', 1, 'RESERVA ESPORTIVA');
+
+-- Populando a tabela Manutencao
+INSERT INTO Manutencao (ID_Reserva, Contrato, Tipo, Status)
+VALUES (1, 1, 'Limpeza de Campo', 'APROVADA');
+
+-- Populando a tabela Usuario
+INSERT INTO Usuario (U_ID, Nome, Endereco, Tipo)
+VALUES (1, 'Ana Souza', 'Rua A, 100, São Paulo', 'Administrador');
+
+-- Populando a tabela Telefones_Usuario
+INSERT INTO Telefones_Usuario (U_ID, Telefone) VALUES (1, '11-4002-8922');
+INSERT INTO Telefones_Usuario (U_ID, Telefone) VALUES (1, '11-99222-3344');
+
+-- Populando a tabela Pessoa_Juridica
+INSERT INTO Pessoa_Juridica (U_ID, CNPJ, Categoria)
+VALUES (1, '98.765.432/0001-01', 'Prestadora de Serviços');
+
+-- Populando a tabela Pessoa_Fisica
+INSERT INTO Pessoa_Fisica (U_ID, CPF, Categoria)
+VALUES (1, '123.456.789-00', 'Gestor Esportivo');
+
+-- Populando a tabela Reserva_Esportiva
+INSERT INTO Reserva_Esportiva (ID_Reserva, Usuario, Nome_Reserva, Quantidade_Pessoas, Tipo, Funcionario_Responsavel, Aprovado)
+VALUES (1, 1, 'Reserva para Torneio', 20, 'Esportivo', 1, 'SIM');
