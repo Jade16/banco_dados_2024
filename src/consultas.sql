@@ -16,5 +16,13 @@
 
   -- buscar todas as reservas (esportivas e de manutenção) de um dia X - select 
 
--- consulta 1: saber qual o funcionário que aprovou e o usuário responsável por todas as reservas esportivas que ainda não ocorreram
-
+-- consulta 1: saber qual o funcionário que aprovou e o usuário responsável por todas as reservas esportivas que ainda não ocorreram 
+SELECT R.ID_Reserva, R.Data_Reserva, R.Instalacao, R.Nro_Espaco, R.Tipo_Reserva 
+  FROM Reserva R 
+  JOIN Reserva_Esportiva RE 
+  ON R.Tipo_Reserva = 'RESERVA ESPORTIVA'
+    AND R.Data_Reserva >= TRUNC(SYSDATE + 1)
+    (SELECT U.Nome, F.F_ID, F.Nome
+      FROM Usuaio U, Funcionario_Instalacao F 
+      WHERE U.U_ID = RE.Usuario 
+        AND F.F_ID = RE.Funcionario_Responsavel);
