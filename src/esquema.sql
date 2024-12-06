@@ -162,7 +162,7 @@ CREATE TABLE Manutencao(
   ID_Reserva NUMBER NOT NULL,
   Contrato NUMBER NOT NULL,
   Tipo VARCHAR2(100),
-  Status VARCHAR2(16) NOT NULL, -- aceita apenas 5 valores: Buscando empresa; Aprovada; Em andamento; Finalizada; Recusada
+  Status VARCHAR2(16) NOT NULL, -- aceita apenas 5 valores: Marcada; Em andamento; Finalizada; Cancelada 
   CONSTRAINT PK_Manutencao PRIMARY KEY (ID_Reserva),
   CONSTRAINT FK_ID_Reserva_M FOREIGN KEY (ID_Reserva)
     REFERENCES Reserva(ID_Reserva)
@@ -170,7 +170,7 @@ CREATE TABLE Manutencao(
   CONSTRAINT FK_Contrato_M FOREIGN KEY (Contrato)
     REFERENCES Contrato(ID_Contrato),
   CONSTRAINT CK_Status_M CHECK (
-    UPPER(Status) IN ('BUSCANDO EMPRESA', 'APROVADA', 'EM ANDAMENTO', 'FINALIZADA', 'RECUSADA')
+    UPPER(Status) IN ('MARCADA', 'EM ANDAMENTO', 'FINALIZADA', 'CANCELADA')
   )
 );
 

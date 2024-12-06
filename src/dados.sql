@@ -1,14 +1,21 @@
 -- Inserção de dados na tabela Empresa_Manutencao
 INSERT INTO Empresa_Manutencao (CNPJ, Tipo_Empresa, Proprietario, Orgao_Vinculado, Nome_Fantasia)
-VALUES ('12.345.678/0001-90', 'PÚBLICA', 'Governo Estadual', 'Secretaria de Esportes', 'Estádio Cidade');
+  VALUES ('12.345.678/0001-90', 'PÚBLICA', 'Governo Estadual', 'Secretaria de Esportes', 'Estádio Cidade');
 INSERT INTO Empresa_Manutencao (CNPJ, Tipo_Empresa, Proprietario, Orgao_Vinculado, Nome_Fantasia)
-VALUES ('98.765.432/0001-98', 'PRIVADA', 'João Silva', 'N/A', 'Esportes XYZ');
+  VALUES ('98.765.432/0001-98', 'PRIVADA', 'João Silva', 'N/A', 'Esportes XYZ');
+INSERT INTO Empresa_Manutencao (CNPJ, Tipo_Empresa, Proprietario, Orgao_Vinculado, Nome_Fantasia)
+  VALUES ('57.245.785/0001-11', 'PRIVADA', 'Carlos Camargo Rodrigues', 'N/A', 'Luzes Elétricas');
+INSERT INTO Empresa_Manutencao (CNPJ, Tipo_Empresa, Proprietario, Orgao_Vinculado, Nome_Fantasia)
+  VALUES ('78.325.698/0001-00', 'PRIVADA', 'Joana Josias', 'N/A', 'TIBUM! Piscinas');
 
 -- Inserção de dados na tabela Servicos_Empresa
 INSERT INTO Servicos_Empresa (Empresa, Servico)
-VALUES ('12.345.678/0001-90', 'Manutenção de campo');
+  VALUES ('12.345.678/0001-90', 'Manutenção de campo');
 INSERT INTO Servicos_Empresa (Empresa, Servico)
-VALUES ('98.765.432/0001-98', 'Treinamento de equipes');
+  VALUES ('98.765.432/0001-98', 'Treinamento de equipes');
+INSERT INTO Servicos_Empresa (Empresa, Servico)
+  VALUES ('57.245.785/0001-11', 'Troca de lâmpadas');
+
 
 -- Inserção de dados na tabela Telefones_Empresa
 INSERT INTO Telefones_Empresa (Empresa, Telefone)
