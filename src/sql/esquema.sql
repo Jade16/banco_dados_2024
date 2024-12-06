@@ -162,7 +162,7 @@ CREATE TABLE Manutencao(
   ID_Reserva NUMBER NOT NULL,
   Contrato NUMBER NOT NULL,
   Tipo VARCHAR2(100),
-  Status VARCHAR2(16) NOT NULL, -- aceita apenas 5 valores: Buscando empresa; Aprovada; Em andamento; Finalizada; Recusada
+  Status VARCHAR2(16) NOT NULL, -- aceita apenas 4 valores: marcada, em andamento, finalizada, cancelada
   CONSTRAINT PK_Manutencao PRIMARY KEY (ID_Reserva),
   CONSTRAINT FK_ID_Reserva_M FOREIGN KEY (ID_Reserva)
     REFERENCES Reserva(ID_Reserva)
@@ -170,7 +170,7 @@ CREATE TABLE Manutencao(
   CONSTRAINT FK_Contrato_M FOREIGN KEY (Contrato)
     REFERENCES Contrato(ID_Contrato),
   CONSTRAINT CK_Status_M CHECK (
-    UPPER(Status) IN ('BUSCANDO EMPRESA', 'APROVADA', 'EM ANDAMENTO', 'FINALIZADA', 'RECUSADA')
+    UPPER(Status) IN ('MARCADA', 'EM ANDAMENTO', 'FINALIZADA', 'CANCELADA')
   )
 );
 
@@ -236,3 +236,23 @@ CREATE TABLE Reserva_Esportiva(
     UPPER(Aprovado) IN ('SIM', 'NÃO', 'EM ANALISE')
   )
 ); 
+
+
+-- DELETAR TODAS AS TABELAS:
+DROP TABLE Reserva_Esportiva CASCADE CONSTRAINTS;
+DROP TABLE Pessoa_Fisica CASCADE CONSTRAINTS;
+DROP TABLE Pessoa_Juridica CASCADE CONSTRAINTS;
+DROP TABLE Telefones_Usuario CASCADE CONSTRAINTS;
+DROP TABLE Usuario CASCADE CONSTRAINTS;
+DROP TABLE Manutencao CASCADE CONSTRAINTS;
+DROP TABLE Reserva CASCADE CONSTRAINTS;
+DROP TABLE Espaco_Esportivo CASCADE CONSTRAINTS;
+DROP TABLE Funcionario_Instalacao CASCADE CONSTRAINTS;
+DROP TABLE Instalacao_Esportiva CASCADE CONSTRAINTS;
+DROP TABLE Servicos_Contrato CASCADE CONSTRAINTS;
+DROP TABLE Contrato CASCADE CONSTRAINTS;
+DROP TABLE Gestor_Esportivo CASCADE CONSTRAINTS;
+DROP TABLE Cidade CASCADE CONSTRAINTS;
+DROP TABLE Telefones_Empresa CASCADE CONSTRAINTS;
+DROP TABLE Servicos_Empresa CASCADE CONSTRAINTS;
+DROP TABLE Empresa_Manutencao CASCADE CONSTRAINTS;
