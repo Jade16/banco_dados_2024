@@ -83,7 +83,6 @@ SELECT S.Servico, C.Orcamento, C.Empresa, C.ID_Contrato
   WHERE C.Orcamento > 40000 AND I.CNPJ = '98.765.432/0001-98';
 
 
-
 -- consulta 5: ver quantas reservas funcionário fizeram (funcionário como usuário) (se nao fez reserva deve ficar com 0)
 SELECT F.Nome, F.F_ID, count(R.ID_Reserva) as Reservas
   FROM Funcionario_Instalacao F LEFT JOIN Pessoa_Fisica P ON P.CPF = F.CPF
@@ -105,3 +104,4 @@ SELECT C.Nome, I.Endereco_Rua, I.Endereco_Numero, I.Endereco_Bairro, I.Endereco_
   FROM Cidade C JOIN Instalacao_Esportiva I ON C.Codigo_Municipio = I.Cidade
   JOIN Espaco_Esportivo E ON I.CNPJ = E.Instalacao
   WHERE UPPER(E.Tipo) LIKE '%PISCINA%';
+
