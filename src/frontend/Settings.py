@@ -1,0 +1,33 @@
+# window
+APP_SIZE = ('1080', '600')
+
+# texts
+FONT = "Bahnschrift"
+MAIN_TEXT_SIZE = 64
+TOP_TEXT_SIZE = 47
+INPUT_FONT_SIZE = 26
+SWITCH_FONT_SIZE = 18
+BUTTON_CORNER_RADIUS = 6
+
+# colors
+LIGHT_BLUE = "#14c0e5"
+DARK_BLUE = "#0f4c75"
+#LIGHT_BLUE = "#14c0e0"
+WHITE = "#D9D9D9"
+BLACK_BACKGROUND = "#202022" #"#1f1f23"
+BLACK = "#141414"
+DARK_GRAY = "#252527"
+#DARK_GRAY = "#1F1F1F"
+GRAY = "#303033"
+LIGHT_GRAY = "#8f8f8f"
+#GRAY = "#2f2f33"
+
+
+FONT_FAMILY = "Bahnschrift"
+
+H2 = (FONT_FAMILY, 34, "bold")
+H3 = (FONT_FAMILY, 26, "bold")
+H4 = (FONT_FAMILY, 22, "bold")
+H5 = (FONT_FAMILY, 18, "bold")
+H5_no_bold = (FONT_FAMILY, 18)
+H6 = (FONT_FAMILY, 14)

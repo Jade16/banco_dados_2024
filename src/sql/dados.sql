@@ -1,8 +1,8 @@
 -- Inserção de dados na tabela Empresa_Manutencao
 INSERT INTO Empresa_Manutencao (CNPJ, Tipo_Empresa, Proprietario, Orgao_Vinculado, Nome_Fantasia)
-  VALUES ('12.345.678/0001-90', 'PÚBLICA', 'Governo Estadual', 'Secretaria de Esportes', 'Estádio Cidade');
+  VALUES ('79.444.789/0001-48', 'PÚBLICA', 'Governo Estadual', 'Secretaria de Esportes', 'Estádio Cidade');
 INSERT INTO Empresa_Manutencao (CNPJ, Tipo_Empresa, Proprietario, Orgao_Vinculado, Nome_Fantasia)
-  VALUES ('98.765.432/0001-98', 'PRIVADA', 'João Silva', 'N/A', 'Esportes XYZ');
+  VALUES ('91.556.987/0001-49', 'PRIVADA', 'João Silva', 'N/A', 'Esportes XYZ');
 INSERT INTO Empresa_Manutencao (CNPJ, Tipo_Empresa, Proprietario, Orgao_Vinculado, Nome_Fantasia)
   VALUES ('57.245.785/0001-11', 'PRIVADA', 'Carlos Camargo Rodrigues', 'N/A', 'Luzes Elétricas');
 INSERT INTO Empresa_Manutencao (CNPJ, Tipo_Empresa, Proprietario, Orgao_Vinculado, Nome_Fantasia)
@@ -10,9 +10,9 @@ INSERT INTO Empresa_Manutencao (CNPJ, Tipo_Empresa, Proprietario, Orgao_Vinculad
 
 -- Inserção de dados na tabela Servicos_Empresa
 INSERT INTO Servicos_Empresa (Empresa, Servico)
-  VALUES ('12.345.678/0001-90', 'Manutenção de campo');
+  VALUES ('79.444.789/0001-48', 'Manutenção de campo');
 INSERT INTO Servicos_Empresa (Empresa, Servico)
-  VALUES ('98.765.432/0001-98', 'Treinamento de equipes');
+  VALUES ('91.556.987/0001-49', 'Treinamento de equipes');
 INSERT INTO Servicos_Empresa (Empresa, Servico)
   VALUES ('57.245.785/0001-11', 'Troca de lâmpadas');
 INSERT INTO Servicos_Empresa (Empresa, Servico)
@@ -22,15 +22,16 @@ INSERT INTO Servicos_Empresa (Empresa, Servico)
 
 -- Inserção de dados na tabela Telefones_Empresa
 INSERT INTO Telefones_Empresa (Empresa, Telefone)
-  VALUES ('12.345.678/0001-90', '(11) 987654321');
+  VALUES ('79.444.789/0001-48', '(11) 987654321');
 INSERT INTO Telefones_Empresa (Empresa, Telefone)
-  VALUES ('98.765.432/0001-98', '(21) 912345678');
+  VALUES ('91.556.987/0001-49', '(21) 912345678');
 INSERT INTO Telefones_Empresa (Empresa, Telefone)
   VALUES ('57.245.785/0001-11', '(16) 36089897');
 INSERT INTO Telefones_Empresa (Empresa, Telefone)
   VALUES ('78.325.698/0001-00', '(19) 988657485');
 INSERT INTO Telefones_Empresa (Empresa, Telefone)
   VALUES ('78.325.698/0001-00', '(19) 35897542');
+
 
 -- Inserção de dados na tabela Cidade
 INSERT INTO Cidade (Codigo_Municipio, Nome, UF)
@@ -54,13 +55,14 @@ INSERT INTO Gestor_Esportivo (F_ID, Cidade, Endereco_Rua, Endereco_Numero, Ender
 
 -- Inserção de dados na tabela Contrato
 INSERT INTO Contrato (ID_Contrato, Empresa, Gestor, Data, Orcamento, Periodo_Contrato)
-  VALUES (1, '12.345.678/0001-90', 1, TO_DATE('01/06/2023', 'DD/MM/YYYY'), 50000, '1 ano');
+  VALUES (1, '79.444.789/0001-48', 1, TO_DATE('01/06/2023', 'DD/MM/YYYY'), 50000, '1 ano');
 INSERT INTO Contrato (ID_Contrato, Empresa, Gestor, Data, Orcamento, Periodo_Contrato)
-  VALUES (2, '98.765.432/0001-98', 2, TO_DATE('01/07/2023', 'DD/MM/YYYY'), 30000, '6 meses');
+  VALUES (2, '91.556.987/0001-49', 2, TO_DATE('01/07/2023', 'DD/MM/YYYY'), 30000, '6 meses');
 INSERT INTO Contrato (ID_Contrato, Empresa, Gestor, Data, Orcamento, Periodo_Contrato)
   VALUES (3, '57.245.785/0001-11', 4, TO_DATE('01/03/2021', 'DD/MM/YYYY'), 400000, '4 anos');
 INSERT INTO Contrato (ID_Contrato, Empresa, Gestor, Data, Orcamento, Periodo_Contrato)
   VALUES (4, '78.325.698/0001-00', 3, TO_DATE('01/05/2024', 'DD/MM/YYYY'), 90000, '1 ano');
+
 
 -- Inserção de dados na tabela Servicos_Contrato
 INSERT INTO Servicos_Contrato (Contrato, Servico)
@@ -118,6 +120,7 @@ INSERT INTO Espaco_Esportivo (Instalacao, Nro_Espaco, Tipo)
 INSERT INTO Espaco_Esportivo (Instalacao, Nro_Espaco, Tipo)
   VALUES ('23.654.987/0001-89', 6, 'Quadra Poliesportiva');  
 
+
 -- Inserção de dados na tabela Reserva
 INSERT INTO Reserva (ID_Reserva, Data_Reserva, Hora_Inicio, Hora_Termino, Instalacao, Nro_Espaco, Tipo_Reserva)
   VALUES (1, TO_DATE('15/12/2024', 'DD/MM/YYYY'), TO_TIMESTAMP('08:00', 'HH24:MI'), TO_TIMESTAMP('10:00', 'HH24:MI'), '12.345.678/0001-90', 1, 'RESERVA ESPORTIVA');
@@ -145,6 +148,7 @@ INSERT INTO Manutencao (ID_Reserva, Contrato, Tipo, Status)
   VALUES (3, 4, 'Troca de lâmpadas', 'CANCELA');
 INSERT INTO Manutencao (ID_Reserva, Contrato, Tipo, Status)
   VALUES (4, 3, 'Limpeza de Piscina', 'APROVADA');
+
 
 -- Inserção de dados na tabela Usuario
 INSERT INTO Usuario (U_ID, Nome, Endereco, Tipo)
@@ -180,6 +184,7 @@ INSERT INTO Pessoa_Juridica (U_ID, CNPJ, Categoria)
 INSERT INTO Pessoa_Juridica (U_ID, CNPJ, Categoria)
   VALUES (4, '12.456.487/0001-65', 'Fisioterapeuta');
 
+
 -- Inserção de dados na tabela Pessoa_Fisica
 INSERT INTO Pessoa_Fisica (U_ID, CPF, Categoria)
   VALUES (1, '123.456.789-00', 'Atleta');
@@ -198,3 +203,4 @@ INSERT INTO Reserva_Esportiva (ID_Reserva, Usuario, Nome_Reserva, Quantidade_Pes
   VALUES (5, 2, 'Aula de Futebol infantil', 30, 'Futebol', 3, 'EM ANALISE');
 INSERT INTO Reserva_Esportiva (ID_Reserva, Usuario, Nome_Reserva, Quantidade_Pessoas, Tipo, Funcionario_Responsavel, Aprovado)
   VALUES (7, 4, 'Confraternização', 45, 'Confraternização da Empresa', 3, 'SIM');
+
