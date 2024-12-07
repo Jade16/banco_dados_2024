@@ -30,7 +30,7 @@ SELECT R.ID_Reserva, R.Data_Reserva, R.Instalacao, R.Nro_Espaco, R.Tipo_Reserva
 -- consulta 2: dado uma instalacao X, quais os usuarios que fizeram alguma reserva em todos os espacos esportivos de X
 -- usuario -> reserva_esportiva -> reserva (usuario, numero_espaco) / instalacao_esportiva (X)-> Espaco_Esportivo (numero_espaco)
 -- XXXXXXXXXXX = CNPJ Instalacao Esportiva
-SELECT U.Nome, U.U_ID as 
+SELECT U.Nome, U.U_ID 
   FROM Usuario U
   WHERE NOT EXISTS (
     (SELECT Esp.Numero_Espaco FROM Espaco_Esportivo Esp WHERE Esp.CNPJ = 'XXXXXXXXXX') 
