@@ -81,3 +81,12 @@ SELECT S.Servico, C.Orcamento, C.Empresa, C.ID_Contrato
   JOIN Servicos_Contrato S ON S.Contrato = C.ID_Contrato
   WHERE C.Orcamento > YYY AND I.CNPJ = 'XXX';
 
+-- consulta 5: ver quantas reservas funcionário fizeram (funcionário como usuário) (se nao fez reserva deve ficar com 0)
+SELECT F.Nome, F.F_ID, count(R.ID_Reserva) as Reservas
+  FROM Funcionario_Instalacao F LEFT JOIN Pessoa_Fisica P ON P.CPF = F.CPF
+  LEFT JOIN Reserva_Esportiva R ON R.Usuario = P.U_ID
+  GROUP BY F.F_ID, F.Nome;
+
+  
+
+
