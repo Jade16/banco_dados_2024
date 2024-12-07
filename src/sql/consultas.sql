@@ -75,9 +75,33 @@ SELECT U.Nome, U.U_ID
 -- consulta 4: dado uma instalação esportiva XXX, ver quais servicos tiveram orcamento acima de YYY reais
 -- Instalacao -> ~~Espaco~~ -> Reserva -> Manutencao -> Contrato (orcamento) -> Servico_Contrato (servico)
 SELECT S.Servico, C.Orcamento, C.Empresa, C.ID_Contrato
-  FROM Instalacao_Esportiva I JOIN Reserva R ON R.Instalacao = I.CNPJ
+  FROM Instalacao_Esportiva I 
+  JOIN Reserva R ON R.Instalacao = I.CNPJ
   JOIN Manutencao M ON M.ID_Reserva = R.ID_Reserva
-  JOIN Contrato C ON C.ID_Contrato = R.Contrato
+  JOIN Contrato C ON C.ID_Contrato = M.Contrato
   JOIN Servicos_Contrato S ON S.Contrato = C.ID_Contrato
-  WHERE C.Orcamento > YYY AND I.CNPJ = 'XXX';
+  WHERE C.Orcamento > 40000 AND I.CNPJ = '98.765.432/0001-98';
 
+
+
+-- consulta 5: ver quantas reservas funcionário fizeram (funcionário como usuário) (se nao fez reserva deve ficar com 0)
+SELECT F.Nome, F.F_ID, count(R.ID_Reserva) as Reservas
+  FROM Funcionario_Instalacao F LEFT JOIN Pessoa_Fisica P ON P.CPF = F.CPF
+  LEFT JOIN Reserva_Esportiva R ON R.Usuario = P.U_ID
+  GROUP BY F.F_ID, F.Nome;
+
+
+-- consulta 6: Selecionar empresas responsáveis pelas manutenções que ainda não foram realizadas
+-- usar o status da tabela manutençao que pode ser apenas ('MARCADA', 'EM ANDAMENTO', 'FINALIZADA', 'CANCELADA')
+SELECT C.Empresa, M.Status
+  FROM Contrato C 
+  JOIN Manutencao M ON C.ID_Contrato = M.Contrato
+  WHERE M.Status IN ('MARCADA', 'EM ANDAMENTO');
+
+
+-- consulta 7: selecionar as cidades e os endereços das instalações esportivas que tem piscina
+-- deixar o E.tipo em maiusculo para garantir que não haja erro de case
+SELECT C.Nome, I.Endereco_Rua, I.Endereco_Numero, I.Endereco_Bairro, I.Endereco_CEP
+  FROM Cidade C JOIN Instalacao_Esportiva I ON C.Codigo_Municipio = I.Cidade
+  JOIN Espaco_Esportivo E ON I.CNPJ = E.Instalacao
+  WHERE UPPER(E.Tipo) LIKE '%PISCINA%';
