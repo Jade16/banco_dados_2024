@@ -34,10 +34,11 @@ SELECT U.Nome, U.U_ID
   FROM Usuario U
   WHERE NOT EXISTS (
     (SELECT Esp.Numero_Espaco FROM Espaco_Esportivo Esp WHERE Esp.CNPJ = 'XXXXXXXXXX') 
-    EXCEPT 
+    MINUS 
     (SELECT R.Numero_Espaco
       FROM Usuario Ud JOIN Reserva_Esportiva RE ON RE.Usuario = Ud.U_ID
       JOIN Reserva R ON R.ID_Reserva = RE.ID_Reserva
       WHERE Ud.U_ID = U.U_ID AND R.Instalacao = 'XXXXXXXXXX'
     )
   );
+
