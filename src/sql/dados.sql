@@ -141,13 +141,13 @@ INSERT INTO Reserva (ID_Reserva, Data_Reserva, Hora_Inicio, Hora_Termino, Instal
 
 -- Inserção de dados na tabela Manutencao
 INSERT INTO Manutencao (ID_Reserva, Contrato, Tipo, Status)
-  VALUES (1, 1, 'Limpeza de campo', 'FINALIZADA');
+  VALUES (2, 1, 'Limpeza de campo', 'FINALIZADA');
 INSERT INTO Manutencao (ID_Reserva, Contrato, Tipo, Status)
-  VALUES (2, 2, 'Pintura de quadra', 'MARCADA');
+  VALUES (3, 2, 'Pintura de quadra', 'MARCADA');
 INSERT INTO Manutencao (ID_Reserva, Contrato, Tipo, Status)
-  VALUES (3, 4, 'Troca de lâmpadas', 'CANCELADA');
+  VALUES (6, 4, 'Troca de lâmpadas', 'CANCELADA');
 INSERT INTO Manutencao (ID_Reserva, Contrato, Tipo, Status)
-  VALUES (4, 3, 'Limpeza de Piscina', 'EM ANDAMENTO');
+  VALUES (8, 3, 'Limpeza de Piscina', 'EM ANDAMENTO');
 
 
 -- Inserção de dados na tabela Usuario
@@ -195,12 +195,9 @@ INSERT INTO Pessoa_Fisica (U_ID, CPF, Categoria)
 INSERT INTO Reserva_Esportiva (ID_Reserva, Usuario, Nome_Reserva, Quantidade_Pessoas, Tipo, Funcionario_Responsavel, Aprovado)
   VALUES (1, 1, 'Treinamento de Futebol', 15, 'Futebol', 1, 'SIM');
 INSERT INTO Reserva_Esportiva (ID_Reserva, Usuario, Nome_Reserva, Quantidade_Pessoas, Tipo, Funcionario_Responsavel, Aprovado)
-  VALUES (2, 2, 'Evento Corporativo', 50, 'Futebol', 2, 'EM ANALISE'); -- rever aqui
-
+  VALUES (4, 2, 'Evento Corporativo', 50, 'Futebol', 2, 'EM ANALISE'); -- rever aqui
 INSERT INTO Reserva_Esportiva (ID_Reserva, Usuario, Nome_Reserva, Quantidade_Pessoas, Tipo, Funcionario_Responsavel, Aprovado)
-  VALUES (4, 3, 'Aula de Volêi', 12, 'Volêi', 3, 'SIM');
-INSERT INTO Reserva_Esportiva (ID_Reserva, Usuario, Nome_Reserva, Quantidade_Pessoas, Tipo, Funcionario_Responsavel, Aprovado)
-  VALUES (5, 2, 'Aula de Futebol infantil', 30, 'Futebol', 3, 'EM ANALISE');
+  VALUES (5, 3, 'Aula de Volêi', 12, 'Volêi', 3, 'SIM');
 INSERT INTO Reserva_Esportiva (ID_Reserva, Usuario, Nome_Reserva, Quantidade_Pessoas, Tipo, Funcionario_Responsavel, Aprovado)
   VALUES (7, 4, 'Confraternização', 45, 'Confraternização da Empresa', 3, 'SIM');
 
