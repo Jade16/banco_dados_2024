@@ -186,7 +186,78 @@ class Database:
             print("Oracle-Error-Message:", error.message)
             self.connection.rollback()
             raise
+    
+    def search_reservations(self, filters):
+        query = """
+        SELECT
+            r.ID_Reserva,
+            r.Data_Reserva,
+            r.Hora_Inicio,
+            r.Hora_Termino,
+            r.Instalacao,
+            r.Nro_Espaco,
+            r.Tipo_Reserva,
+            i.Nome AS Nome_Instalacao,
+            c.Nome AS Nome_Cidade,
+            e.Tipo AS Tipo_Espaco
+        FROM Reserva r
+        JOIN Instalacao_Esportiva i ON r.Instalacao = i.CNPJ
+        JOIN Cidade c ON i.Cidade = c.Codigo_Municipio
+        JOIN Espaco_Esportivo e ON r.Instalacao = e.Instalacao AND r.Nro_Espaco = e.Nro_Espaco
+        WHERE 1=1
+        """
+        params = {}
 
+        if filters.get('reservation_date'):
+            query += " AND r.Data_Reserva = TO_DATE(:reservation_date, 'DD/MM/YYYY')"
+            params['reservation_date'] = filters['reservation_date']
+
+        if filters.get('installation'):
+            query += " AND r.Instalacao = :installation"
+            params['installation'] = filters['installation']
+
+        if filters.get('space'):
+            query += " AND r.Nro_Espaco = :space"
+            params['space'] = filters['space']
+
+        try:
+            self.cursor.execute(query, params)
+            return self.cursor.fetchall()
+        except cx_Oracle.DatabaseError as e:
+            error, = e.args
+            print("Oracle-Error-Code:", error.code)
+            print("Oracle-Error-Message:", error.message)
+            raise
+    
+    def get_installations(self):
+        """
+        Get a list of all installations in the database.
+        """
+        query = "SELECT CNPJ FROM Instalacao_Esportiva"
+        self.cursor.execute(query)
+        return [row[0] for row in self.cursor.fetchall()]
+    
+    def get_spaces(self, installation):
+        """
+        Get a list of all spaces in the given installation.
+        """
+        query = "SELECT Nro_Espaco, Tipo FROM Espaco_Esportivo WHERE Instalacao = :cnpj"
+        self.cursor.execute(query, {'cnpj': installation})
+        return [f"{row[0]} - {row[1]}" for row in self.cursor.fetchall()]
+
+    def get_user(self, user_id):
+        """
+        Get the user ID and name based on the user ID.
+        """
+        self.cursor.execute("SELECT U_ID, NOME FROM Usuario WHERE U_ID = :u_id", {'u_id': user_id})
+        return self.cursor.fetchone()
+    
+    def get_contracts(self):
+        """
+        Get a list of all contract IDs in the database.
+        """
+        self.cursor.execute("SELECT ID_Contrato FROM Contrato")
+        return [str(row[0]) for row in self.cursor.fetchall()]
 
     def close(self):
         self.cursor.close()

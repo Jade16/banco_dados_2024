@@ -8,7 +8,7 @@ class Sidebar(ctk.CTkFrame):
         self.configure(fg_color=GRAY, corner_radius=0)
 
         # Criar botões
-        self.btn_cadastro_reserva = ctk.CTkButton(self, text="Cadastrar Reserva", corner_radius=0, height=48, font=H5,
+        self.btn_cadastro_reserva = ctk.CTkButton(self, text="Cadastrar Reserva Esportiva", corner_radius=0, height=48, font=H5,
                                                   fg_color="transparent", hover_color=BLACK, anchor="w",
                                                   border_spacing=16)
         self.btn_cadastro_reserva.pack(fill="x", pady=(20,0), padx=0)
@@ -18,7 +18,7 @@ class Sidebar(ctk.CTkFrame):
                                                      fg_color="transparent", hover_color=BLACK, anchor="w")
         self.btn_cadastro_manutencao.pack(fill="x", pady=0, padx=0)
 
-        self.btn_consulta = ctk.CTkButton(self, text="Consulta", corner_radius=0, height=48, font=H5,
+        self.btn_consulta = ctk.CTkButton(self, text="Consultar Reservas", corner_radius=0, height=48, font=H5,
                                           border_spacing=16,
                                           fg_color="transparent", hover_color=BLACK, anchor="w")
         self.btn_consulta.pack(fill="x", pady=0, padx=0)

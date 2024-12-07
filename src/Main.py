@@ -27,6 +27,8 @@ class App(ctk.CTk):
         self.bind_all("<1>", lambda event: self._callback_focus(event)) # Remove o foco de widgets ao clicar fora deles
 
     def _center_window(self, width, height):
+        # Centralizar a janela na tela
+        
         screen_width = self.winfo_screenwidth()
         screen_height = self.winfo_screenheight()
         x = int(screen_width / 2 - width / 2)

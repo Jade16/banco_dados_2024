@@ -55,8 +55,7 @@ class RegisterReservationFrame(ctk.CTkFrame):
         """
         db = Database()
         try:
-            db.cursor.execute("SELECT CNPJ FROM Instalacao_Esportiva")
-            installations = [row[0] for row in db.cursor.fetchall()]
+            installations = db.get_installations()
             # inserir "Selecione uma instalação" no início da lista
             installations.insert(0, "Selecione uma instalação")
             self.combobox_installation.set("Selecione uma instalação")
@@ -81,8 +80,7 @@ class RegisterReservationFrame(ctk.CTkFrame):
 
         db = Database()
         try:
-            db.cursor.execute("SELECT Nro_Espaco, Tipo FROM Espaco_Esportivo WHERE Instalacao = :cnpj", {'cnpj': selected_cnpj})
-            name_spaces = [f"{str(row[0])} - {str(row[1])}" for row in db.cursor.fetchall()]
+            name_spaces = db.get_spaces(selected_cnpj)
             if name_spaces:
                 self.combobox_space.configure(values=name_spaces)
             else:
@@ -153,8 +151,7 @@ class RegisterReservationFrame(ctk.CTkFrame):
         """
         db = Database()
         try:
-            db.cursor.execute("SELECT U_ID, NOME FROM Usuario WHERE U_ID = :u_id", {'u_id': user_id})
-            result = db.cursor.fetchone()
+            result = db.get_user(user_id)
             if result:
                 return result[0], result[1]
             else:

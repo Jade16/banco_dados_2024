@@ -50,12 +50,11 @@ class RegisterMaintenanceFrame(ctk.CTkFrame):
         """
         db = Database()
         try:
-            db.cursor.execute("SELECT CNPJ FROM Instalacao_Esportiva")
-            installations = [row[0] for row in db.cursor.fetchall()]
+            installations = db.get_installations()
             # inserir "Selecione uma instalação" no início da lista
-            installations.insert(0, "Selecione uma instalação")
-            self.combobox_installation.set("Selecione uma instalação")
             if installations:
+                installations.insert(0, "Selecione uma instalação")
+                self.combobox_installation.set("Selecione uma instalação")
                 self.combobox_installation.configure(values=installations)
             else:
                 self.combobox_installation.configure(values=["Nenhuma instalação encontrada"])
@@ -71,11 +70,13 @@ class RegisterMaintenanceFrame(ctk.CTkFrame):
         """
         db = Database()
         try:
-            db.cursor.execute("SELECT ID_Contrato FROM Contrato")
-            contracts = [str(row[0]) for row in db.cursor.fetchall()]
-            contracts.insert(0, "Selecione um contrato")
-            self.combobox_contract.set("Selecione um contrato")
-            self.combobox_contract.configure(values=contracts if contracts else ["Nenhum contrato encontrado"])
+            contracts = db.get_contracts()
+            if contracts:
+                contracts.insert(0, "Selecione um contrato")
+                self.combobox_contract.set("Selecione um contrato")
+                self.combobox_contract.configure(values=contracts)
+            else:
+                self.combobox_contract.configure(values=["Nenhum contrato encontrado"])
         except Exception as e:
             print("Erro ao carregar contratos:", e)
             Utils.show_error("Erro de Banco de Dados", "Erro ao carregar contratos: " + str(e))
@@ -93,9 +94,10 @@ class RegisterMaintenanceFrame(ctk.CTkFrame):
 
         db = Database()
         try:
-            db.cursor.execute("SELECT Nro_Espaco, Tipo FROM Espaco_Esportivo WHERE Instalacao = :cnpj", {'cnpj': selected_cnpj})
-            name_spaces = [f"{str(row[0])} - {str(row[1])}" for row in db.cursor.fetchall()]
+            name_spaces = db.get_spaces(selected_cnpj)
             if name_spaces:
+                name_spaces.insert(0, "Selecione um espaço")
+                self.combobox_space.set("Selecione um espaço")
                 self.combobox_space.configure(values=name_spaces)
             else:
                 self.combobox_space.configure(values=["Nenhum espaço disponível"])

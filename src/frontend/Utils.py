@@ -73,6 +73,20 @@ class Utils:
         btn_save.pack(side="right", padx=16, pady=16)
     
     @staticmethod
+    def insert_search_button(bottom_frame, command):
+        # Save button
+        btn_save = ctk.CTkButton(
+            bottom_frame,
+            text="Pesquisar",
+            font=H5,
+            fg_color=LIGHT_BLUE,
+            hover_color=DARK_BLUE,
+            text_color=BLACK,
+            command=command
+        )
+        btn_save.pack(side="right", padx=16, pady=16)
+    
+    @staticmethod
     def insert_clear_button(bottom_frame, command):
         # Clear button
         btn_clear = ctk.CTkButton(
@@ -99,3 +113,18 @@ class Utils:
         bottom_frame.pack(fill="both", padx=8, pady=8)
         
         return scroll_frame, bottom_frame
+    
+    @staticmethod
+    def configure_search_layout(frame, text):
+        scroll_frame = ctk.CTkScrollableFrame(frame, fg_color=BLACK, corner_radius=10,
+                                                   label_text=text, label_font=H4,
+                                                   label_fg_color=LIGHT_BLUE, label_text_color=BLACK)
+        scroll_frame.pack(fill="both", expand=True, padx=8, pady=8)
+
+        filter_frame = ctk.CTkFrame(frame, fg_color="transparent", corner_radius=10)
+        filter_frame.pack(fill="both", padx=8, pady=0)
+        
+        bottom_frame = ctk.CTkFrame(frame, fg_color="transparent", height=64, corner_radius=10)
+        bottom_frame.pack(fill="both", padx=8, pady=8)
+        
+        return scroll_frame, filter_frame, bottom_frame
