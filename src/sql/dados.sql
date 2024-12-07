@@ -107,19 +107,19 @@ INSERT INTO Espaco_Esportivo (Instalacao, Nro_Espaco, Tipo)
   VALUES ('65.123.456/0001-33', 2, 'Quadra de Futsal');
 INSERT INTO Espaco_Esportivo (Instalacao, Nro_Espaco, Tipo)
   VALUES ('65.123.456/0001-33', 3, 'Piscina Olímpica');
-INSERT INTO Espaco_Esportivo (Instalacao, Nro_Espaco, Tipo)
-  VALUES ('23.654.987/0001-89', 1, 'Quadra de Basquete');
-INSERT INTO Espaco_Esportivo (Instalacao, Nro_Espaco, Tipo)
-  VALUES ('23.654.987/0001-89', 2, 'Quadra de Tenis');
-INSERT INTO Espaco_Esportivo (Instalacao, Nro_Espaco, Tipo)
-  VALUES ('23.654.987/0001-89', 3, 'Quadra de Futebol de Campo');
-INSERT INTO Espaco_Esportivo (Instalacao, Nro_Espaco, Tipo)
-  VALUES ('23.654.987/0001-89', 4, 'Piscina Olímpica');
-INSERT INTO Espaco_Esportivo (Instalacao, Nro_Espaco, Tipo)
-  VALUES ('23.654.987/0001-89', 5, 'Piscina Infantil');
-INSERT INTO Espaco_Esportivo (Instalacao, Nro_Espaco, Tipo)
-  VALUES ('23.654.987/0001-89', 6, 'Quadra Poliesportiva');  
 
+INSERT INTO Espaco_Esportivo (Instalacao, Nro_Espaco, Tipo)
+  VALUES ('12.345.678/0001-90', 2, 'Quadra de Basquete');
+INSERT INTO Espaco_Esportivo (Instalacao, Nro_Espaco, Tipo)
+  VALUES ('12.345.678/0001-90', 3, 'Quadra de Tenis');
+INSERT INTO Espaco_Esportivo (Instalacao, Nro_Espaco, Tipo)
+  VALUES ('98.765.432/0001-98', 2, 'Quadra de Futebol de Campo');
+INSERT INTO Espaco_Esportivo (Instalacao, Nro_Espaco, Tipo)
+  VALUES ('98.765.432/0001-98', 3, 'Piscina Olímpica');
+INSERT INTO Espaco_Esportivo (Instalacao, Nro_Espaco, Tipo)
+  VALUES ('12.345.678/0001-90', 4, 'Piscina Infantil');
+INSERT INTO Espaco_Esportivo (Instalacao, Nro_Espaco, Tipo)
+  VALUES ('65.123.456/0001-33', 4, 'Quadra Poliesportiva');  
 
 -- Inserção de dados na tabela Reserva
 INSERT INTO Reserva (ID_Reserva, Data_Reserva, Hora_Inicio, Hora_Termino, Instalacao, Nro_Espaco, Tipo_Reserva)
@@ -127,7 +127,7 @@ INSERT INTO Reserva (ID_Reserva, Data_Reserva, Hora_Inicio, Hora_Termino, Instal
 INSERT INTO Reserva (ID_Reserva, Data_Reserva, Hora_Inicio, Hora_Termino, Instalacao, Nro_Espaco, Tipo_Reserva)
   VALUES (2, TO_DATE('16/12/2024', 'DD/MM/YYYY'), TO_TIMESTAMP('14:00', 'HH24:MI'), TO_TIMESTAMP('16:00', 'HH24:MI'), '98.765.432/0001-98', 1, 'MANUTENÇÃO');
 INSERT INTO Reserva (ID_Reserva, Data_Reserva, Hora_Inicio, Hora_Termino, Instalacao, Nro_Espaco, Tipo_Reserva)
-  VALUES (3, TO_DATE('20/01/2023', 'DD/MM/YYYY'), TO_TIMESTAMP('08:00', 'HH24:MI'), TO_TIMESTAMP('12:00', 'HH24:MI'), '23.654.987/0001-89', 4, 'MANUTENÇÃO');
+  VALUES (3, TO_DATE('20/01/2023', 'DD/MM/YYYY'), TO_TIMESTAMP('08:00', 'HH24:MI'), TO_TIMESTAMP('12:00', 'HH24:MI'), '98.765.432/0001-98', 4, 'MANUTENÇÃO');
 INSERT INTO Reserva (ID_Reserva, Data_Reserva, Hora_Inicio, Hora_Termino, Instalacao, Nro_Espaco, Tipo_Reserva)
   VALUES (4, TO_DATE('16/02/2025', 'DD/MM/YYYY'), TO_TIMESTAMP('13:00', 'HH24:MI'), TO_TIMESTAMP('15:00', 'HH24:MI'), '32.654.987/0001-89', 6, 'RESERVA ESPORTIVA');
 INSERT INTO Reserva (ID_Reserva, Data_Reserva, Hora_Inicio, Hora_Termino, Instalacao, Nro_Espaco, Tipo_Reserva)
