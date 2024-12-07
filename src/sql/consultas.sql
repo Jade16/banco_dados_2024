@@ -71,3 +71,12 @@ SELECT U.Nome, U.U_ID
     )
   );
 
+
+-- consulta 4: dado uma instalação esportiva XXX, ver quais servicos tiveram orcamento acima de YYY reais
+-- Instalacao -> ~~Espaco~~ -> Reserva -> Manutencao -> Contrato (orcamento) -> Servico_Contrato (servico)
+SELECT S.Servico, C.Orcamento, C.Empresa, C.ID_Contrato
+  FROM Instalacao_Esportiva I JOIN Reserva R ON R.Instalacao = I.CNPJ
+  JOIN Manutencao M ON M.ID_Reserva = R.ID_Reserva
+  JOIN Contrato C ON C.ID_Contrato = R.Contrato
+  JOIN Servicos_Contrato S ON S.Contrato = C.ID_Contrato
+  WHERE C.Orcamento > YYY AND I.CNPJ = 'XXX';
