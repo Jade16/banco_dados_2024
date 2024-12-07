@@ -33,7 +33,7 @@ SELECT R.ID_Reserva, R.Data_Reserva, R.Instalacao, R.Nro_Espaco, R.Tipo_Reserva
 SELECT U.Nome, U.U_ID 
   FROM Usuario U
   WHERE NOT EXISTS (
-    (SELECT Esp.Numero_Espaco FROM Espaco_Esportivo Esp WHERE Esp.CNPJ = 'XXXXXXXXXX') 
+    (SELECT Esp.Numero_Espaco FROM Espaco_Esportivo Esp WHERE Esp.Instalacao = 'XXXXXXXXXX') 
     MINUS 
     (SELECT R.Numero_Espaco
       FROM Usuario Ud JOIN Reserva_Esportiva RE ON RE.Usuario = Ud.U_ID
