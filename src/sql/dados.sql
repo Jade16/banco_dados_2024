@@ -88,13 +88,13 @@ INSERT INTO Instalacao_Esportiva (CNPJ, Nome, Cidade, Endereco_Rua, Endereco_Num
 
 -- Inserção de dados na tabela Funcionario_Instalacao
 INSERT INTO Funcionario_Instalacao (F_ID, Nome, CPF, RG, Nro_Carteira_Trabalho, Data_Contratacao, Instalacao_Esportiva, Telefone1, Telefone2)
-VALUES (1, 'Carlos Souza', '123.456.789-00', '12.345.678-9', '12345', TO_DATE('01/01/2020', 'DD/MM/YYYY'), '12.345.678/0001-90', '(11) 123456789', '(11) 987654321');
+  VALUES (1, 'Carlos Souza', '123.456.789-00', '12.345.678-9', '12345', TO_DATE('01/01/2020', 'DD/MM/YYYY'), '12.345.678/0001-90', '(11) 123456789', '(11) 987654321');
 INSERT INTO Funcionario_Instalacao (F_ID, Nome, CPF, RG, Nro_Carteira_Trabalho, Data_Contratacao, Instalacao_Esportiva, Telefone1, Telefone2)
-VALUES (2, 'Ana Costa', '987.654.321-00', '98.765.432-1', '67890', TO_DATE('15/05/2021', 'DD/MM/YYYY'), '98.765.432/0001-98', '(21) 234567890', '(21) 998765432');
+  VALUES (2, 'Ana Costa', '987.654.321-00', '98.765.432-1', '67890', TO_DATE('15/05/2021', 'DD/MM/YYYY'), '98.765.432/0001-98', '(21) 234567890', '(21) 998765432');
 INSERT INTO Funcionario_Instalacao (F_ID, Nome, CPF, RG, Nro_Carteira_Trabalho, Data_Contratacao, Instalacao_Esportiva, Telefone1, Telefone2)
-VALUES (3, 'Carolina Amaral de Andrade', '895.564.231-00', '45.789.456-B', '456123', TO_DATE('10/01/2017', 'DD/MM/YYYY'), '65.123.456/0001-33', '(19)999885566', '(19) 30629584');
+  VALUES (3, 'Carolina Amaral de Andrade', '895.564.231-00', '45.789.456-B', '456123', TO_DATE('10/01/2017', 'DD/MM/YYYY'), '65.123.456/0001-33', '(19)999885566', '(19) 30629584');
 INSERT INTO Funcionario_Instalacao (F_ID, Nome, CPF, RG, Nro_Carteira_Trabalho, Data_Contratacao, Instalacao_Esportiva, Telefone1, Telefone2)
-VALUES (4, 'José Carlos dos Santos', '741.852.963-88', '89.456.89A-F', '852369', TO_DATE('15/11/2022', 'DD/MM/YYYY'), '32.654.987/0001-89', '(16) 965874578', '(16) 65983265');
+  VALUES (4, 'José Carlos dos Santos', '741.852.963-88', '89.456.89A-F', '852369', TO_DATE('15/11/2022', 'DD/MM/YYYY'), '32.654.987/0001-89', '(16) 965874578', '(16) 65983265');
 
 -- Inserção de dados na tabela Espaco_Esportivo
 INSERT INTO Espaco_Esportivo (Instalacao, Nro_Espaco, Tipo)
@@ -127,17 +127,17 @@ INSERT INTO Reserva (ID_Reserva, Data_Reserva, Hora_Inicio, Hora_Termino, Instal
 INSERT INTO Reserva (ID_Reserva, Data_Reserva, Hora_Inicio, Hora_Termino, Instalacao, Nro_Espaco, Tipo_Reserva)
   VALUES (2, TO_DATE('16/12/2024', 'DD/MM/YYYY'), TO_TIMESTAMP('14:00', 'HH24:MI'), TO_TIMESTAMP('16:00', 'HH24:MI'), '98.765.432/0001-98', 1, 'MANUTENÇÃO');
 INSERT INTO Reserva (ID_Reserva, Data_Reserva, Hora_Inicio, Hora_Termino, Instalacao, Nro_Espaco, Tipo_Reserva)
-  VALUES (3, TO_DATE('20/01/2023', 'DD/MM/YYYY'), TO_TIMESTAMP('08:00', 'HH24:MI'), TO_TIMESTAMP('12:00', 'HH24:MI'), '98.765.432/0001-98', 4, 'MANUTENÇÃO');
+  VALUES (3, TO_DATE('20/01/2023', 'DD/MM/YYYY'), TO_TIMESTAMP('08:00', 'HH24:MI'), TO_TIMESTAMP('12:00', 'HH24:MI'), '98.765.432/0001-98', 3, 'MANUTENÇÃO');
 INSERT INTO Reserva (ID_Reserva, Data_Reserva, Hora_Inicio, Hora_Termino, Instalacao, Nro_Espaco, Tipo_Reserva)
-  VALUES (4, TO_DATE('16/02/2025', 'DD/MM/YYYY'), TO_TIMESTAMP('13:00', 'HH24:MI'), TO_TIMESTAMP('15:00', 'HH24:MI'), '32.654.987/0001-89', 6, 'RESERVA ESPORTIVA');
+  VALUES (4, TO_DATE('16/02/2025', 'DD/MM/YYYY'), TO_TIMESTAMP('13:00', 'HH24:MI'), TO_TIMESTAMP('15:00', 'HH24:MI'), '12.345.678/0001-90', 4, 'RESERVA ESPORTIVA');
 INSERT INTO Reserva (ID_Reserva, Data_Reserva, Hora_Inicio, Hora_Termino, Instalacao, Nro_Espaco, Tipo_Reserva)
   VALUES (5, TO_DATE('15/12/2024', 'DD/MM/YYYY'), TO_TIMESTAMP('14:00', 'HH24:MI'), TO_TIMESTAMP('16:00', 'HH24:MI'), '65.123.456/0001-33', 1, 'RESERVA ESPORTIVA');
 INSERT INTO Reserva (ID_Reserva, Data_Reserva, Hora_Inicio, Hora_Termino, Instalacao, Nro_Espaco, Tipo_Reserva)
   VALUES (6, TO_DATE('10/11/2024', 'DD/MM/YYYY'), TO_TIMESTAMP('18:00', 'HH24:MI'), TO_TIMESTAMP('19:00', 'HH24:MI'), '65.123.456/0001-33', 1, 'MANUTENÇÃO');
 INSERT INTO Reserva (ID_Reserva, Data_Reserva, Hora_Inicio, Hora_Termino, Instalacao, Nro_Espaco, Tipo_Reserva)
-  VALUES (7, TO_DATE('30/01/2024', 'DD/MM/YYYY'), TO_TIMESTAMP('14:00', 'HH24:MI'), TO_TIMESTAMP('18:00', 'HH24:MI'), '23.654.987/0001-89', 3, 'RESERVA ESPORTIVA');
+  VALUES (7, TO_DATE('30/01/2024', 'DD/MM/YYYY'), TO_TIMESTAMP('14:00', 'HH24:MI'), TO_TIMESTAMP('18:00', 'HH24:MI'), '65.123.456/0001-33', 3, 'RESERVA ESPORTIVA');
 INSERT INTO Reserva (ID_Reserva, Data_Reserva, Hora_Inicio, Hora_Termino, Instalacao, Nro_Espaco, Tipo_Reserva)
-  VALUES (8, TO_DATE('16/02/2024', 'DD/MM/YYYY'), TO_TIMESTAMP('13:00', 'HH24:MI'), TO_TIMESTAMP('15:00', 'HH24:MI'), '32.654.987/0001-89', 6, 'MANUTENÇÃO');
+  VALUES (8, TO_DATE('16/02/2024', 'DD/MM/YYYY'), TO_TIMESTAMP('13:00', 'HH24:MI'), TO_TIMESTAMP('15:00', 'HH24:MI'), '65.123.456/0001-33', 3, 'MANUTENÇÃO');
 
 -- Inserção de dados na tabela Manutencao
 INSERT INTO Manutencao (ID_Reserva, Contrato, Tipo, Status)
@@ -145,9 +145,9 @@ INSERT INTO Manutencao (ID_Reserva, Contrato, Tipo, Status)
 INSERT INTO Manutencao (ID_Reserva, Contrato, Tipo, Status)
   VALUES (2, 2, 'Pintura de quadra', 'MARCADA');
 INSERT INTO Manutencao (ID_Reserva, Contrato, Tipo, Status)
-  VALUES (3, 4, 'Troca de lâmpadas', 'CANCELA');
+  VALUES (3, 4, 'Troca de lâmpadas', 'CANCELADA');
 INSERT INTO Manutencao (ID_Reserva, Contrato, Tipo, Status)
-  VALUES (4, 3, 'Limpeza de Piscina', 'APROVADA');
+  VALUES (4, 3, 'Limpeza de Piscina', 'EM ANDAMENTO');
 
 
 -- Inserção de dados na tabela Usuario
@@ -204,3 +204,4 @@ INSERT INTO Reserva_Esportiva (ID_Reserva, Usuario, Nome_Reserva, Quantidade_Pes
 INSERT INTO Reserva_Esportiva (ID_Reserva, Usuario, Nome_Reserva, Quantidade_Pessoas, Tipo, Funcionario_Responsavel, Aprovado)
   VALUES (7, 4, 'Confraternização', 45, 'Confraternização da Empresa', 3, 'SIM');
 
+COMMIT;
