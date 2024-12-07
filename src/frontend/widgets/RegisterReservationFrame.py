@@ -10,7 +10,9 @@ class RegisterReservationFrame(ctk.CTkFrame):
         self.configure(fg_color=GRAY, corner_radius=10)
 
         self.scroll_frame, self.bottom_frame = Utils.configure_layout(self, "Cadastro de Reserva")
+
         self._create_widgets()
+
 
     def _create_widgets(self):
         # Form fields

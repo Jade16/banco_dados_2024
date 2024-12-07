@@ -1,10 +1,12 @@
 import cx_Oracle
+import platform
 
 class Database:
     def __init__(self):
         try:
-            if not cx_Oracle.clientversion():
-                cx_Oracle.init_oracle_client(lib_dir=r"C:\\oracle\\instantclient_23_6") # Update this with your Oracle Instant Client path
+            # No Linux, não chame init_oracle_client se o LD_LIBRARY_PATH estiver configurado
+            if platform.system() == "Windows" and not cx_Oracle.clientversion():
+                cx_Oracle.init_oracle_client(lib_dir=r"C:\\oracle\\instantclient_23_6")
         except Exception as e:
             print("Erro ao inicializar o cliente Oracle:", e)
                

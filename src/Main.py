@@ -5,11 +5,20 @@ class App(ctk.CTk):
     def __init__(self):
         super().__init__()
         self.title("Sistema de Reservas Esportivas")
-        self.geometry("1080x600")
-        self.resizable(False, False)
+        
+        # criar janela tendo 90% da largura e da altura da tela:
+        width = self.winfo_screenwidth() * 0.8
+        height = self.winfo_screenheight() * 0.8
+
+        self.geometry(f"{int(width)}x{int(height)}")
+
+        # self.resizable(False, False)
+
+        # definir o tamanho mínimo da janela:
+        self.minsize(width, height)
 
         # Iniciar tela no centro
-        self._center_window(1080, 600)
+        self._center_window(width, height)
 
         # Inicializar o frame principal
         self.main_frame = MainFrame(self)

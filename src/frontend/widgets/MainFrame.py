@@ -30,6 +30,7 @@ class MainFrame(ctk.CTkFrame):
         
         self.show_cadastro_reserva()
 
+
     def show_cadastro_reserva(self):
         self.content_frame.show_cadastro_reserva()
         for i in range(3):

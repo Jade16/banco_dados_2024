@@ -23,23 +23,30 @@ class Utils:
     def insert_entry(scroll_frame, text, placeholder=""):
         card = ctk.CTkFrame(scroll_frame, fg_color="transparent", corner_radius=8)
         card.pack(fill="x", padx=16, pady=16)
+        card.columnconfigure((0,1), weight=1, uniform="card")
         label = ctk.CTkLabel(card, text=text, font=H5)
-        label.pack(side="left", padx=16)
-        entry = ctk.CTkEntry(card, width=400, border_color=LIGHT_BLUE, font=H6,
+        # label.pack(side="left", padx=16)
+        label.grid(row=0, column=0, padx=16, sticky="w")
+        entry = ctk.CTkEntry(card, width=400, border_color=LIGHT_BLUE, font=H5_no_bold,
                              placeholder_text=placeholder)
-        entry.pack(side="right", padx=16)
+        # entry.pack(side="right", padx=16)
+        entry.grid(row=0, column=1, padx=16, sticky="nswe")
         return entry
 
     @staticmethod
     def insert_combobox(scroll_frame, text, values, command=None):
         card = ctk.CTkFrame(scroll_frame, fg_color="transparent", corner_radius=8)
         card.pack(fill="x", padx=16, pady=16)
+        card.columnconfigure((0,1), weight=1, uniform="card")
         label = ctk.CTkLabel(card, text=text, font=H5)
-        label.pack(side="left", padx=16)
-        combobox = ctk.CTkComboBox(card, width=400, border_color=LIGHT_BLUE, font=H6,
+        # label.pack(side="left", padx=16)
+        label.grid(row=0, column=0, padx=16, sticky="w")
+        combobox = ctk.CTkComboBox(card, width=400, border_color=LIGHT_BLUE, font=H5_no_bold,
                                    button_color=LIGHT_BLUE, button_hover_color=DARK_BLUE,
+                                   dropdown_font=H5_no_bold, dropdown_fg_color=LIGHT_GRAY,
                                    values=values, command=command)
-        combobox.pack(side="right", padx=16)
+        # combobox.pack(side="right", padx=16)
+        combobox.grid(row=0, column=1, padx=16, sticky="nswe")
         return combobox
     
     @staticmethod
