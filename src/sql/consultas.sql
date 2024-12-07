@@ -1,23 +1,11 @@
 -- script com as consultas realizadas no banco de dados já criado
 
--- ideias de consultas para se fazer:
-  -- as reservas aprovadas por um funcionário X ou qual funcionário aprovou uma reserva X - join interno resolve
-    -- se quiser acrescentar mais algo, é possível ver quem é o usuário responsável pelo resultado anterior - acho que outro join interno possa resolver
-
-  -- todas as reservas feitas por um usuario específico, junto com as informações do espaço esportivo e instalação - acho que teria que ser uma consulta alinhada
-
-  -- quais as instalações esportivas e cidades de um usuário X já fez reservas - para isso acho que seria necessario um join externo 
-  
-  -- quais contratos o gestor X realizou com uma empresa Y, ou com várias empresas - join interno
-
-  -- Empresas responsáveis pelas manutenções que ainda não foram realizadas - consulta alinhada ?
-
-  -- Exibir as cidades e os endereços das instalações esportivas que tem piscina - 2 joins internos
-
-  -- buscar todas as reservas (esportivas e de manutenção) de um dia X - select 
-
 -- consulta 1: saber qual o funcionário que aprovou e o usuário responsável por todas as reservas esportivas que ainda não ocorreram 
-SELECT RE.Nome_Reserva, R.Data_Reserva, U.Nome, F.Nome 
+SELECT 
+  RE.Nome_Reserva,
+  R.Data_Reserva, 
+  U.Nome AS NOME_USUARIO, 
+  F.Nome AS NOME_FUNCIONARIO
   FROM Reserva_Esportiva RE
     JOIN Reserva R 
      ON R.ID_Reserva = RE.ID_Reserva
@@ -49,9 +37,6 @@ JOIN Cidade c ON i.Cidade = c.Codigo_Municipio
 JOIN Espaco_Esportivo e ON r.Instalacao = e.Instalacao AND r.Nro_Espaco = e.Nro_Espaco
 WHERE EXTRACT(YEAR FROM Data_Reserva) = EXTRACT(YEAR FROM SYSDATE);
 
-
-
-
 -- consulta 3: dado uma instalacao X, quais os usuarios que fizeram alguma reserva em todos os espacos esportivos de X
 -- usuario -> reserva_esportiva -> reserva (usuario, numero_espaco) / instalacao_esportiva (X)-> Espaco_Esportivo (numero_espaco)
 -- XXXXXXXXXXX = CNPJ Instalacao Esportiva
@@ -67,7 +52,6 @@ SELECT U.Nome, U.U_ID
     )
   );
 
-
 -- consulta 4: dado uma instalação esportiva XXX, ver quais servicos tiveram orcamento acima de YYY reais
 -- Instalacao -> ~~Espaco~~ -> Reserva -> Manutencao -> Contrato (orcamento) -> Servico_Contrato (servico)
 SELECT S.Servico, C.Orcamento, C.Empresa, C.ID_Contrato
@@ -78,13 +62,11 @@ SELECT S.Servico, C.Orcamento, C.Empresa, C.ID_Contrato
   JOIN Servicos_Contrato S ON S.Contrato = C.ID_Contrato
   WHERE C.Orcamento > 40000 AND I.CNPJ = '98.765.432/0001-98';
 
-
 -- consulta 5: ver quantas reservas funcionário fizeram (funcionário como usuário) (se nao fez reserva deve ficar com 0)
 SELECT F.Nome, F.F_ID, count(R.ID_Reserva) as Reservas
   FROM Funcionario_Instalacao F LEFT JOIN Pessoa_Fisica P ON P.CPF = F.CPF
   LEFT JOIN Reserva_Esportiva R ON R.Usuario = P.U_ID
   GROUP BY F.F_ID, F.Nome;
-
 
 -- consulta 6: Selecionar empresas responsáveis pelas manutenções que ainda não foram realizadas
 -- usar o status da tabela manutençao que pode ser apenas ('MARCADA', 'EM ANDAMENTO', 'FINALIZADA', 'CANCELADA')
@@ -92,7 +74,6 @@ SELECT C.Empresa, M.Status
   FROM Contrato C 
   JOIN Manutencao M ON C.ID_Contrato = M.Contrato
   WHERE M.Status IN ('MARCADA', 'EM ANDAMENTO');
-
 
 -- consulta 7: selecionar as cidades e os endereços das instalações esportivas que tem piscina
 -- deixar o E.tipo em maiusculo para garantir que não haja erro de case
