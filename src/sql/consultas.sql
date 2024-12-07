@@ -80,3 +80,4 @@ SELECT S.Servico, C.Orcamento, C.Empresa, C.ID_Contrato
   JOIN Contrato C ON C.ID_Contrato = R.Contrato
   JOIN Servicos_Contrato S ON S.Contrato = C.ID_Contrato
   WHERE C.Orcamento > YYY AND I.CNPJ = 'XXX';
+
