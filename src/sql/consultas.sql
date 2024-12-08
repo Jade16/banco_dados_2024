@@ -64,7 +64,8 @@ SELECT S.Servico, C.Orcamento, C.Empresa, C.ID_Contrato
 
 -- consulta 5: ver quantas reservas funcionário fizeram (funcionário como usuário) (se nao fez reserva deve ficar com 0)
 SELECT F.Nome, F.F_ID, count(R.ID_Reserva) as Reservas
-  FROM Funcionario_Instalacao F LEFT JOIN Pessoa_Fisica P ON P.CPF = F.CPF
+  FROM Funcionario_Instalacao F 
+  LEFT JOIN Pessoa_Fisica P ON P.CPF = F.CPF
   LEFT JOIN Reserva_Esportiva R ON R.Usuario = P.U_ID
   GROUP BY F.F_ID, F.Nome;
 
@@ -78,7 +79,8 @@ SELECT C.Empresa, M.Status
 -- consulta 7: selecionar as cidades e os endereços das instalações esportivas que tem piscina
 -- deixar o E.tipo em maiusculo para garantir que não haja erro de case
 SELECT C.Nome, I.Endereco_Rua, I.Endereco_Numero, I.Endereco_Bairro, I.Endereco_CEP
-  FROM Cidade C JOIN Instalacao_Esportiva I ON C.Codigo_Municipio = I.Cidade
+  FROM Cidade C 
+  JOIN Instalacao_Esportiva I ON C.Codigo_Municipio = I.Cidade
   JOIN Espaco_Esportivo E ON I.CNPJ = E.Instalacao
   WHERE UPPER(E.Tipo) LIKE '%PISCINA%';
 

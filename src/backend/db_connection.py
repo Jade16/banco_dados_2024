@@ -2,11 +2,12 @@ import cx_Oracle
 import platform
 
 class Database:
+
     def __init__(self):
         try:
             # No Linux, não chame init_oracle_client se o LD_LIBRARY_PATH estiver configurado
             if platform.system() == "Windows" and not cx_Oracle.clientversion():
-                cx_Oracle.init_oracle_client(lib_dir=r"C:\\oracle\\instantclient_23_6")
+                cx_Oracle.init_oracle_client(lib_dir=r"C:\\oracle\\instantclient_23_6") # Altere para o diretório do seu Instant Client
         except Exception as e:
             print("Erro ao inicializar o cliente Oracle:", e)
                
@@ -17,8 +18,8 @@ class Database:
             service_name="pdb_elaine.icmc.usp.br"
         )
         self.connection = cx_Oracle.connect(
-            user="a13696679",
-            password="senhafoda.123",
+            user="aNUSP",
+            password="senha",
             dsn=self.dsn
         )
         self.cursor = self.connection.cursor()
@@ -188,6 +189,12 @@ class Database:
             raise
     
     def search_reservations(self, filters):
+        """
+        This method searches for reservations based on the given filters.
+        :param filters: A dictionary containing filters for the query.
+        :return: A list of reservations that match the given filters.
+        """
+
         query = """
         SELECT
             r.ID_Reserva,
@@ -207,15 +214,12 @@ class Database:
         WHERE 1=1
         """
         params = {}
-
         if filters.get('reservation_date'):
             query += " AND r.Data_Reserva = TO_DATE(:reservation_date, 'DD/MM/YYYY')"
             params['reservation_date'] = filters['reservation_date']
-
         if filters.get('installation'):
             query += " AND r.Instalacao = :installation"
             params['installation'] = filters['installation']
-
         if filters.get('space'):
             query += " AND r.Nro_Espaco = :space"
             params['space'] = filters['space']
